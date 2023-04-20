@@ -57,7 +57,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def ian(self):
-      pass
+      print("Here is a first line")
       
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
