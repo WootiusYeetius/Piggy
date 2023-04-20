@@ -61,6 +61,8 @@ class Piggy(PiggyParent):
       print("Bosnia is so based")
       self.fwd()
       self.sleep(2)
+      self.stop()
+      
       self.right()
       time.sleep(2)
       self.stop()
