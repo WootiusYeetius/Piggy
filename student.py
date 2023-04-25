@@ -37,6 +37,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
+                "u": ("Square", self.square),
                 "s": ("Shy", self.shy),
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
@@ -66,6 +67,16 @@ class Piggy(PiggyParent):
       self.right()
       time.sleep(2)
       self.stop()
+
+    def square(self):
+      for x in range (4):
+        self.fwd()
+        self.sleep(2)
+        self.stop()
+        
+        self.right()
+        self.sleep(1.75)
+        self.stop()
       
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
