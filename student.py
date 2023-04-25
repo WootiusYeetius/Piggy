@@ -75,7 +75,7 @@ class Piggy(PiggyParent):
         self.stop()
         
         self.right()
-        time.sleep(1.75)
+        time.sleep(1)
         self.stop()
       
     def dance(self):
