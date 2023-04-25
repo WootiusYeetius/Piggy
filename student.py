@@ -60,7 +60,7 @@ class Piggy(PiggyParent):
       print("Here is a first line")
       print("Bosnia is so based")
       self.fwd()
-      self.sleep(2)
+      time.sleep(2)
       self.stop()
       
       self.right()
