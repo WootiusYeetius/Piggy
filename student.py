@@ -46,7 +46,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "i" :("Ian", self.ian),
-                "z" :("Scan", self.scan)
+                "z" :("Scan", self.scan),
+                "m" :("moveToWall", self.moveToWall)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -109,7 +110,14 @@ class Piggy(PiggyParent):
         """ Another example move """
         self.deg_fwd(720)
         self.stop()
-
+    
+    def moveToWall(self):
+      while True:
+        if (self.servo(1600) > 1000):
+          self.fwd()
+          time.sleep(3)
+          self.stop()
+  
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
         self.right() # start rotating right
