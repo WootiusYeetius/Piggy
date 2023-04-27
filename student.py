@@ -125,7 +125,7 @@ class Piggy(PiggyParent):
         self.servo(angle)
         self.scan_data[angle] = self.read_distance()
       print(self.scan_data)
-        
+      print(len(self.scan_data))
 
     def obstacle_count(self):
         """Does a 360 scan and returns the number of obstacles it sees"""
