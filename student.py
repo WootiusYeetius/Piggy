@@ -117,6 +117,7 @@ class Piggy(PiggyParent):
           self.fwd()
         else:
           self.stop()
+          self.turn_to_deg(180)
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
