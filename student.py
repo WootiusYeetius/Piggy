@@ -113,9 +113,9 @@ class Piggy(PiggyParent):
     
     def moveToWall(self):
       while True:
-        if (self.servo(1600) > 1000):
+        if (self.read_distance() > 1000):
           self.fwd()
-          time.sleep(3)
+        else:
           self.stop()
   
     def example_move(self):
