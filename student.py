@@ -85,7 +85,7 @@ class Piggy(PiggyParent):
       self.left()
       time.sleep(randint(0.2, 3))
       self.stop()
-      self.forward()
+      self.fwd()
       time.sleep(randint(0.2, 1))
       self.stop()
       for i in range(randint(1, 3)):
@@ -95,7 +95,7 @@ class Piggy(PiggyParent):
         self.left()
         time.sleep(randint(0.2, 2.5))
         self.stop()
-      self.forward()         
+      self.fwd()         
       time.sleep(0.5)
       self.stop()
                  
