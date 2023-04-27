@@ -2,7 +2,9 @@
 from teacher import PiggyParent
 import sys
 import time
-from random import randint
+from random import randint, choice
+
+times = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 
 class Piggy(PiggyParent):
 
@@ -83,17 +85,17 @@ class Piggy(PiggyParent):
       """A higher-ordered algorithm to make your robot dance"""
       # TODO: check to see if it's safe before dancing
       self.left()
-      time.sleep(1)
+      time.sleep(choice(times))
       self.stop()
       self.fwd()
-      time.sleep(1)
+      time.sleep(choice(times))
       self.stop()
       for i in range(randint(1, 3)):
         self.right()
-        time.sleep(1)
+        time.sleep(choice(times))
         self.stop()
         self.left()
-        time.sleep(1)
+        time.sleep(choice(times))
         self.stop()
       self.fwd()         
       time.sleep(0.5)
