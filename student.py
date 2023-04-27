@@ -2,6 +2,7 @@
 from teacher import PiggyParent
 import sys
 import time
+from random import randint
 
 class Piggy(PiggyParent):
 
@@ -79,14 +80,25 @@ class Piggy(PiggyParent):
         self.stop()
       
     def dance(self):
-        """A higher-ordered algorithm to make your robot dance"""
-        # TODO: check to see if it's safe before dancing
-        
-        # lower-ordered example...
-        self.right(primary=50, counter=50)
-        time.sleep(2)
+      """A higher-ordered algorithm to make your robot dance"""
+      # TODO: check to see if it's safe before dancing
+      self.left()
+      time.sleep(randint(0.2, 3))
+      self.stop()
+      self.forward()
+      time.sleep(randint(0.2, 1))
+      self.stop()
+      for i in range(randint(1, 3)):
+        self.right()
+        time.sleep(radnint(0.2, 2.5)
         self.stop()
-
+        self.left()
+        time.sleep(randint(0.2, 2.5))
+        self.stop()
+      self.forward()         
+      time.sleep(0.5)
+      self.stop()
+                 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
         pass
