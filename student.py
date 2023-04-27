@@ -90,7 +90,7 @@ class Piggy(PiggyParent):
       self.stop()
       for i in range(randint(1, 3)):
         self.right()
-        time.sleep(randint(0.2, 2.5)
+        time.sleep(randint(0.2, 2.5))
         self.stop()
         self.left()
         time.sleep(randint(0.2, 2.5))
