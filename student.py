@@ -83,17 +83,17 @@ class Piggy(PiggyParent):
       """A higher-ordered algorithm to make your robot dance"""
       # TODO: check to see if it's safe before dancing
       self.left()
-      time.sleep(randint(0.2, 3))
+      time.sleep(1)
       self.stop()
       self.fwd()
-      time.sleep(randint(0.2, 1))
+      time.sleep(1)
       self.stop()
       for i in range(randint(1, 3)):
         self.right()
-        time.sleep(randint(0.2, 2.5))
+        time.sleep(1)
         self.stop()
         self.left()
-        time.sleep(randint(0.2, 2.5))
+        time.sleep(1)
         self.stop()
       self.fwd()         
       time.sleep(0.5)
