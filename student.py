@@ -109,7 +109,7 @@ class Piggy(PiggyParent):
         self.turn_by_deg(36)
         if (self.read_distance() < 100):
           safeArray.append("unsafe")
-      if (safeArray[0] == True):
+      if (safeArray == True):
         print("It is not safe to dance")
       else:
         self.dance()
