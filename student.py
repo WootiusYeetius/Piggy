@@ -111,8 +111,9 @@ class Piggy(PiggyParent):
           safeArray.append("unsafe")
       if (safeArray == True):
         print("It is not safe to dance")
-      else:
+      elif(safeArray != True):
         self.dance()
+        print(safeArray)
       safeArray.clear()
         
     def shake(self):
