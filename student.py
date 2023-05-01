@@ -5,6 +5,7 @@ import time
 from random import randint, choice
 
 times = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+safeArray = []
 
 class Piggy(PiggyParent):
 
@@ -101,11 +102,18 @@ class Piggy(PiggyParent):
       self.fwd()         
       time.sleep(0.5)
       self.stop()
-                 
+#Remember to empty safeArray when done
     def safe_to_dance(self):
-        """ Does a 360 distance check and returns true if safe """
-        pass
-
+      for i in range(10):
+        self.turn_by_deg(36)
+        if (self.read_distance() < 40):
+          safeArray.append("unsafe")
+      if (safeArray[0] == "unsafe"):
+        print("It is not safe to dance")
+      else:
+        self.dance()
+      safeArray.clear()
+        
     def shake(self):
         """ Another example move """
         self.deg_fwd(720)
