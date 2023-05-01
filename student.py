@@ -41,6 +41,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
+                "a": ("safeToDance", self.safe_to_dance),
                 "u": ("Square", self.square),
                 "s": ("Shy", self.shy),
                 "f": ("Follow", self.follow),
@@ -102,7 +103,7 @@ class Piggy(PiggyParent):
       self.fwd()         
       time.sleep(0.5)
       self.stop()
-#Remember to empty safeArray when done
+
     def safe_to_dance(self):
       for i in range(10):
         self.turn_by_deg(36)
