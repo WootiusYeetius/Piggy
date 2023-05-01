@@ -1,4 +1,12 @@
 #!/usr/bin python3
+'''
+Checklist:
+Square: Done
+Dance: Done
+Move to wall: Done
+Safe to dance: Done
+Check which side is shorter: Need to do
+'''
 from teacher import PiggyParent
 import sys
 import time
@@ -6,6 +14,7 @@ from random import randint, choice
 
 times = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 safeArray = []
+evalArray = []
 
 class Piggy(PiggyParent):
 
@@ -49,7 +58,8 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
-                "m" :("moveToWall", self.moveToWall)
+                "m" :("moveToWall", self.moveToWall),
+                "e" :("evalSide", self.evalSide)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -111,7 +121,7 @@ class Piggy(PiggyParent):
           safeArray.append("unsafe")
       if (len(safeArray) != 0):
         print("It is not safe to dance")
-      elif(len(safeArray) == 0):
+      elif (len(safeArray) == 0):
         self.dance()
         print(safeArray)
       safeArray.clear()
@@ -128,6 +138,18 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 40):
           self.stop()
           self.turn_by_deg(180)
+
+    def evalSide(self):
+      while True:
+        self.fwd()
+        if (self.read_distance() < 40):
+          self.stop()
+          self.servo(1000)
+          for i in range(100):
+            if (self.read_distance(self.servo(1000 + (10 * i))) == 0):
+              evalArray.append(1000 + (10 * i))
+          evalArray.sort()
+        #Choose [1]
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
