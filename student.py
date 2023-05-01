@@ -147,9 +147,12 @@ class Piggy(PiggyParent):
           self.servo(1000)
           for i in range(100):
             if (self.read_distance(self.servo(1000 + (10 * i))) == 0):
-              evalArray.append(1000 + (10 * i))
+              if (1000 + (10 * i) > 1500):
+                evalArray.append(2000 - (1000 + (10 * i)))
+              elif (1000 + (10 * i) < 1500):
+                evalArray.append(10 * i)
           evalArray.sort()
-        #Choose [1]
+        #MAKE EVAL ARRAY INTO A DICTIONARY
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
