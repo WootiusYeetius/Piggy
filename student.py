@@ -113,11 +113,11 @@ class Piggy(PiggyParent):
     
     def moveToWall(self):
       while True:
-        if (self.read_distance() > 20):
+        if (self.read_distance() > 40):
           self.fwd()
         else:
           self.stop()
-          self.turn_to_deg(180)
+          self.turn_by_deg(180)
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
