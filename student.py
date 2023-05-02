@@ -163,9 +163,17 @@ class Piggy(PiggyParent):
           leftArray.clear()
           rightArray.clear()
           if (evalDict.get("right") > evalDict.get("left")):
-            self.servo((2000 - evalDict.get("left")))
+            self.left(90)
+            self.fwd()
+            self.sleep(1)
+            self.stop()
+            self.left(-90)
           elif (evalDict.get("left") > evalDict.get("right")):
-            self.servo(1000 + (evalDict.get("right")))
+            self.right(90)
+            self.fwd()
+            self.sleep(1)
+            self.stop()
+            self.right(-90)
         #Empty evalDict
   
     def example_move(self):
