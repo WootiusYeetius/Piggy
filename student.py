@@ -150,7 +150,8 @@ class Piggy(PiggyParent):
           self.stop()
           self.servo(1000)
           for i in range(100):
-            if (self.read_distance(self.servo(1000 + 10 * i)) == 0):
+            self.servo(1000 + 10 * i)
+            if (self.read_distance() == 0):
               if (1000 + (10 * i) > 1500):
                 leftArray.append(2000 - (1000 + (10 * i)))
               elif (1000 + (10 * i) < 1500):
