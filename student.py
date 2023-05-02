@@ -159,8 +159,10 @@ class Piggy(PiggyParent):
           self.servo(1600)
           leftArray.sort()
           rightArray.sort()
-          evalDict["left"] = leftArray[0]
-          evalDict["right"] = rightArray[0]
+          if (len(leftArray) != 0):
+            evalDict["left"] = leftArray[0]
+          if (len(rightArray) != 0):
+            evalDict["right"] = rightArray[0]
           leftArray.clear()
           rightArray.clear()
           if (evalDict.get("right") > evalDict.get("left")):
