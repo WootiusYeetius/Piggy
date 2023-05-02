@@ -174,6 +174,7 @@ class Piggy(PiggyParent):
             self.sleep(1)
             self.stop()
             self.right(-90)
+          evalDict.clear()
         #Empty evalDict
   
     def example_move(self):
