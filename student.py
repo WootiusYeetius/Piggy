@@ -14,7 +14,10 @@ from random import randint, choice
 
 times = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 safeArray = []
-evalArray = []
+evalDict = {}
+leftArray = []
+rightArray = []
+goAngle = 0
 
 class Piggy(PiggyParent):
 
@@ -140,6 +143,7 @@ class Piggy(PiggyParent):
           self.turn_by_deg(180)
 
     def evalSide(self):
+      #fix while true?
       while True:
         self.fwd()
         if (self.read_distance() < 40):
@@ -148,11 +152,21 @@ class Piggy(PiggyParent):
           for i in range(100):
             if (self.read_distance(self.servo(1000 + (10 * i))) == 0):
               if (1000 + (10 * i) > 1500):
-                evalArray.append(2000 - (1000 + (10 * i)))
+                leftArray.append(2000 - (1000 + (10 * i)))
               elif (1000 + (10 * i) < 1500):
-                evalArray.append(10 * i)
-          evalArray.sort()
-        #MAKE EVAL ARRAY INTO A DICTIONARY
+                rightArray.append((10 * i))
+          self.servo(1600)
+          leftArray.sort()
+          rightArray.sort()
+          evalDict["left"] = leftArray[0]
+          evalDict["right"] = rightArray[0]
+          leftArray.clear()
+          rightArray.clear()
+          if (evalDict.get("right") > evalDict.get("left")):
+            self.servo((2000 - evalDict.get("left")))
+          elif (evalDict.get("left") > evalDict.get("right")):
+            self.servo(1000 + (evalDict.get("right")))
+        #Empty evalDict
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
