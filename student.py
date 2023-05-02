@@ -146,11 +146,11 @@ class Piggy(PiggyParent):
       #fix while true?
       while True:
         self.fwd()
-        if (self.read_distance() < 40):
+        if (self.read_distance() < 100):
           self.stop()
           self.servo(1000)
           for i in range(100):
-            if (self.read_distance(self.servo(1000 + (10 * i))) == 0):
+            if (self.read_distance(self.servo(1000 + 10 * i)) == 0):
               if (1000 + (10 * i) > 1500):
                 leftArray.append(2000 - (1000 + (10 * i)))
               elif (1000 + (10 * i) < 1500):
