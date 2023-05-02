@@ -151,7 +151,8 @@ class Piggy(PiggyParent):
           self.servo(1000)
           for i in range(100):
             self.servo(1000 + 10 * i)
-            if (self.read_distance() == 0):
+            #THIS THIS PART IS WRONG v
+            if (self.read_distance() > 100):
               if (1000 + (10 * i) > 1500):
                 leftArray.append(2000 - (1000 + (10 * i)))
               elif (1000 + (10 * i) < 1500):
@@ -163,8 +164,6 @@ class Piggy(PiggyParent):
             evalDict["left"] = leftArray[0]
           if (len(rightArray) != 0):
             evalDict["right"] = rightArray[0]
-          print(leftArray)
-          print(rightArray)
           leftArray.clear()
           rightArray.clear()
           if (evalDict.get("right") > evalDict.get("left")):
