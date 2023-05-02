@@ -163,6 +163,8 @@ class Piggy(PiggyParent):
             evalDict["left"] = leftArray[0]
           if (len(rightArray) != 0):
             evalDict["right"] = rightArray[0]
+          print(leftArray)
+          print(rightArray)
           leftArray.clear()
           rightArray.clear()
           if (evalDict.get("right") > evalDict.get("left")):
