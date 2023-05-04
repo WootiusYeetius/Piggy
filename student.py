@@ -152,7 +152,10 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 40):
           self.stop()
           self.turn_by_deg(90)
-          self.servo(1500)
+          self.servo(2000)
+          if (self.read_distance() > 40):
+            self.turn_by_deg(-90)
+            self.servo(1575)
             
     """
     def evalSide(self):
