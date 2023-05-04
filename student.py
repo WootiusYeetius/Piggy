@@ -35,7 +35,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
-        self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
+        self.MIDPOINT = 1575  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
         
@@ -62,7 +62,9 @@ class Piggy(PiggyParent):
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
                 "m" :("moveToWall", self.moveToWall),
-                "e" :("evalSide", self.evalSide)
+                "e" :("evalSide", self.evalSide),
+                "b" :("betterES", self.betterES),
+                "p" :("pain", self.pain)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -142,6 +144,20 @@ class Piggy(PiggyParent):
           self.stop()
           self.turn_by_deg(180)
 
+    def pain(self):
+      while True:
+        self.fwd()
+        if (self.read_distance < 50):
+          self.stop()
+          self.turn_by_deg(90)
+          self.servo(2000)
+          self.fwd()
+          if (self.read_distance() > 100):
+            self.stop()
+            self.servo(1575)
+            self.turn_by_deg(-90)
+            
+    """
     def evalSide(self):
       #fix while true?
       while True:
@@ -157,7 +173,7 @@ class Piggy(PiggyParent):
                 leftArray.append(2000 - (1000 + (10 * i)))
               elif (1000 + (10 * i) < 1500):
                 rightArray.append((10 * i))
-          self.servo(1600)
+          self.servo(1575)
           leftArray.sort()
           rightArray.sort()
           if (len(leftArray) != 0):
@@ -179,7 +195,21 @@ class Piggy(PiggyParent):
           leftArray.clear()
           rightArray.clear()
           evalDict.clear()
+          """
         #Empty evalDict
+    #IN THE PROCESS OF BES
+    def betterES(self):
+      while True:
+        self.fwd()
+        if (self.read_distance() < 50):
+          self.servo(1000)
+          evalDict["right"] = self.read_distance()
+          self.servo(2000)
+          evalDict["left"] = self.read_distance()
+          if (evalDict["right"] > evalDict["left"]):
+            #left
+            self.turn_by_deg(90)
+            self.fwd()
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
