@@ -146,9 +146,9 @@ class Piggy(PiggyParent):
 
     def pain(self):
       while True:
-        if (self.read_distance() > 50):
+        if (self.read_distance() > 40):
           self.fwd()
-        if (self.read_distance < 50):
+        elif (self.read_distance() < 40):
           self.stop()
           self.turn_by_deg(90)
           self.servo(2000)
