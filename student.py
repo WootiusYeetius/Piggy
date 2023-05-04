@@ -18,7 +18,7 @@ evalDict = {}
 leftArray = []
 rightArray = []
 goAngle = 0
-
+  
 class Piggy(PiggyParent):
 
     '''
@@ -152,7 +152,8 @@ class Piggy(PiggyParent):
           self.stop()
           self.turn_by_deg(90)
           self.servo(2000)
-          self.fwd()
+          while (self.read_distance() < 100)
+            self.fwd()
           if (self.read_distance() > 100):
             self.stop()
             self.servo(1575)
