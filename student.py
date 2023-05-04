@@ -154,7 +154,7 @@ class Piggy(PiggyParent):
           self.servo(2000)
           while (self.read_distance() < 100):
             self.fwd()
-          if (self.read_distance() > 100):
+          if (self.read_distance() > 40):
             self.stop()
             self.servo(1575)
             self.turn_by_deg(-90)
