@@ -145,17 +145,17 @@ class Piggy(PiggyParent):
           self.turn_by_deg(180)
 
     def pain(self):
-      while True:
+      if (self.read_distance() > 50):
         self.fwd()
-        if (self.read_distance < 50):
+      if (self.read_distance < 50):
+        self.stop()
+        self.turn_by_deg(90)
+        self.servo(2000)
+        self.fwd()
+        if (self.read_distance() > 100):
           self.stop()
-          self.turn_by_deg(90)
-          self.servo(2000)
-          self.fwd()
-          if (self.read_distance() > 100):
-            self.stop()
-            self.servo(1575)
-            self.turn_by_deg(-90)
+          self.servo(1575)
+          self.turn_by_deg(-90)
             
     """
     def evalSide(self):
