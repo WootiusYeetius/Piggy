@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
                 "m" :("moveToWall", self.moveToWall),
-                "e" :("evalSide", self.evalSide),
+                #"e" :("evalSide", self.evalSide),
                 "b" :("betterES", self.betterES),
                 "p" :("pain", self.pain)
                 }
