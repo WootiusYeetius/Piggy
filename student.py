@@ -1,4 +1,5 @@
 #!/usr/bin python3
+#INT()
 '''
 Checklist:
 Square: Done
@@ -151,13 +152,7 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 40):
           self.stop()
           self.turn_by_deg(90)
-          self.servo(2000)
-          if (self.read_distance() < 100):
-            self.fwd()
-          elif (self.read_distance() > 40):
-            self.stop()
-            self.servo(1575)
-            self.turn_by_deg(-90)
+          self.servo(1500)
             
     """
     def evalSide(self):
@@ -185,13 +180,13 @@ class Piggy(PiggyParent):
           if (evalDict.get("right") > evalDict.get("left")):
             self.left(90)
             self.fwd()
-            self.sleep(1)
+            time.sleep(1)
             self.stop()
             self.left(-90)
           elif (evalDict.get("left") > evalDict.get("right")):
             self.right(90)
             self.fwd()
-            self.sleep(1)
+            time.sleep(1)
             self.stop()
             self.right(-90)
           leftArray.clear()
