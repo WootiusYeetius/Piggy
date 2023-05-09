@@ -160,10 +160,7 @@ class Piggy(PiggyParent):
             self.servo(1575)
             self.pain()
     '''
-    def keepgoing(self):
-      self.left(90)
-      if (self.read_distance < 40):
-        self.fwd()
+
     def pain(self):
       self.fwd()
       if (self.read_distance() > 40):
@@ -174,7 +171,7 @@ class Piggy(PiggyParent):
         self.fwd()
         time.sleep(2)
         self.stop()
-        self.turn_by_deg(90)
+        self.turn_by_deg(-90)
         self.pain()
     """
     def evalSide(self):
