@@ -208,6 +208,7 @@ class Piggy(PiggyParent):
       if (self.read_distance() > 100):
         self.betterES()
       elif (self.read_distance() < 100):
+        self.stop()
         for i in range(100):
           self.servo(1000 + 10 * i)
           testArray.append(self.read_distance)
