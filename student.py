@@ -36,7 +36,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
-        self.MIDPOINT = 1575  # what servo command (1000-2000) is straight forward for your bot?
+        self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
         
@@ -163,9 +163,9 @@ class Piggy(PiggyParent):
 
     def pain(self):
       self.fwd()
-      if (self.read_distance() > 40):
+      if (self.read_distance() > 100):
         self.pain()
-      elif (self.read_distance() < 40):
+      elif (self.read_distance() < 100):
         self.stop()
         self.turn_by_deg(90)
         self.fwd()
