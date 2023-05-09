@@ -158,6 +158,7 @@ class Piggy(PiggyParent):
           if (self.read_distance() > 40):
             self.turn_by_deg(-90)
             self.servo(1575)
+            self.pain()
             
     """
     def evalSide(self):
