@@ -211,9 +211,8 @@ class Piggy(PiggyParent):
         self.stop()
         for i in range(100):
           self.servo(1000 + 10 * i)
-          testArray.append(self.read_distance)
-        print(testArray)
-        
+          print(self.read_distance())
+ 
     '''
     def betterES(self):
       while True:
