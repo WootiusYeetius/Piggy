@@ -6,7 +6,9 @@ Square: Done
 Dance: Done
 Move to wall: Done
 Safe to dance: Done
+Just go around: Done
 Check which side is shorter: Need to do
+
 '''
 from teacher import PiggyParent
 import sys
@@ -19,7 +21,9 @@ evalDict = {}
 leftArray = []
 rightArray = []
 goAngle = 0
-  
+rt = {}
+lt = {}
+testArray = []
 class Piggy(PiggyParent):
 
     '''
@@ -144,23 +148,7 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 40):
           self.stop()
           self.turn_by_deg(180)
-    '''
-    def pain(self):
-      self.fwd()
-      if (self.read_distance() > 40):
-        self.pain()
-      elif (self.read_distance() < 40):
-        self.stop()
-        self.turn_by_deg(90)
-        self.servo(2000)
-        while True:
-          self.fwd()
-          if (self.read_distance() > 40):
-            self.turn_by_deg(-90)
-            self.servo(1575)
-            self.pain()
-    '''
-
+          
     def pain(self):
       self.fwd()
       if (self.read_distance() > 100):
@@ -173,6 +161,7 @@ class Piggy(PiggyParent):
         self.stop()
         self.turn_by_deg(-90)
         self.pain()
+        
     """
     def evalSide(self):
       #fix while true?
@@ -215,6 +204,17 @@ class Piggy(PiggyParent):
         #Empty evalDict
     #IN THE PROCESS OF BES
     def betterES(self):
+      self.fwd()
+      if (self.read_distance() > 100):
+        self.betterES()
+      elif (self.read_distance() < 100):
+        for i in range(100):
+          self.servo(1000 + 10 * i)
+          testArray.append(self.read_distance)
+        print(testArray)
+        
+    '''
+    def betterES(self):
       while True:
         self.fwd()
         if (self.read_distance() < 50):
@@ -226,6 +226,7 @@ class Piggy(PiggyParent):
             #left
             self.turn_by_deg(90)
             self.fwd()
+    '''
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
