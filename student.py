@@ -240,13 +240,12 @@ class Piggy(PiggyParent):
     '''
   
     def example_move(self):
-        """this is an example dance move that should be replaced by student-created content"""
       self.right()     
-      time.sleep(1) # turn for a second
-      self.stop() # stop
-      self.servo(1000) # look right
-      time.sleep(.25) # give your head time to move
-      self.servo(2000) # look left
+      time.sleep(1)
+      self.stop()
+      self.servo(1000)
+      time.sleep(.25)
+      self.servo(2000)
 
     def scan(self):
       """Sweep the servo and populate the scan_data dictionary"""
