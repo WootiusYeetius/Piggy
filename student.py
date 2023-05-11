@@ -208,9 +208,9 @@ class Piggy(PiggyParent):
       if (self.read_distance() > 100):
         self.stop()
         self.servo(1000)
-        basedArray.append(self.read_distance())
+        basedArray.append(int(self.read_distance()))
         self.servo(2000)
-        basedArray.append(self.read_distance())
+        basedArray.append(int(self.read_distance()))
         if (basedArray[0] > basedArray[1]):
           self.right(90)
           self.fwd()
