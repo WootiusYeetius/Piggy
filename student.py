@@ -218,7 +218,7 @@ class Piggy(PiggyParent):
           self.stop()
           self.betterES()
         elif (basedArray[1] > basedArray[0]):
-          self.turn_by_deg(90)
+          self.turn_by_deg(-90)
           self.fwd()
           time.sleep(2)
           self.stop()
