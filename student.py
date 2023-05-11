@@ -212,13 +212,13 @@ class Piggy(PiggyParent):
         self.servo(2000)
         basedArray.append(int(self.read_distance()))
         if (basedArray[0] > basedArray[1]):
-          self.right(90)
+          self.turn_by_deg(90)
           self.fwd()
           time.sleep(2)
           self.stop()
           self.betterES()
         elif (basedArray[1] > basedArray[0]):
-          self.left(90)
+          self.turn_by_deg(90)
           self.fwd()
           time.sleep(2)
           self.stop()
