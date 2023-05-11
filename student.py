@@ -241,7 +241,8 @@ class Piggy(PiggyParent):
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
-      self.right() # start rotating right        ime.sleep(1) # turn for a second
+      self.right()     
+      time.sleep(1) # turn for a second
       self.stop() # stop
       self.servo(1000) # look right
       time.sleep(.25) # give your head time to move
