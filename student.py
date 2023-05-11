@@ -23,7 +23,7 @@ rightArray = []
 goAngle = 0
 rt = {}
 lt = {}
-testArray = []
+basedArray = []
 class Piggy(PiggyParent):
 
     '''
@@ -206,15 +206,26 @@ class Piggy(PiggyParent):
     def betterES(self):
       self.fwd()
       if (self.read_distance() > 100):
-        self.betterES()
-      elif (self.read_distance() < 100):
         self.stop()
-        for i in range(100):
-          self.servo(1000 + 10 * i)
-          print(self.read_distance())
- 
+        self.servo(1000)
+        basedArray.append(self.read_distance())
+        self.servo(2000)
+        basedArray.append(self.read_distance())
+        if (basedArray[0] > basedArray[1]):
+          self.right(90)
+          self.fwd()
+          time.sleep(2)
+          self.stop()
+          self.betterES()
+        elif (basedArray[1] > basedArray[0]):
+          self.left(90)
+          self.fwd()
+          time.sleep(2)
+          self.stop()
+          self.betterES()
+          
     '''
-    def betterES(self):
+    def betterES(self):`
       while True:
         self.fwd()
         if (self.read_distance() < 50):
@@ -230,8 +241,7 @@ class Piggy(PiggyParent):
   
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
-        self.right() # start rotating right
-        time.sleep(1) # turn for a second
+      self.right() # start rotating right        ime.sleep(1) # turn for a second
         self.stop() # stop
         self.servo(1000) # look right
         time.sleep(.25) # give your head time to move
