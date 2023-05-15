@@ -239,11 +239,11 @@ class Piggy(PiggyParent):
         self.servo(1700)
         wooshArray.append(int(self.read_distance()))
         if (wooshArray[0] > wooshArray[1]):
-          self.LEFT_DEFAULT = 60
+          self.LEFT_DEFAULT = 75
           time.sleep(2)
           self.LEFT_DEFAULT = 50
         elif(wooshArray[1] > wooshArray[1]):
-          self.RIGHT_DEFAULT = 60
+          self.RIGHT_DEFAULT = 75
           time.sleep(2)
           self.RIGHT_DEFAULT = 50
       self.fwd()
