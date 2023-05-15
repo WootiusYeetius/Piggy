@@ -25,6 +25,7 @@ rt = {}
 lt = {}
 basedArray = []
 class Piggy(PiggyParent):
+wooshArray = []
 
     '''
     *************
@@ -38,8 +39,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 80
-        self.RIGHT_DEFAULT = 80
+        self.LEFT_DEFAULT = 50
+        self.RIGHT_DEFAULT = 50
         self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
@@ -61,13 +62,14 @@ class Piggy(PiggyParent):
                 "a": ("safeToDance", self.safe_to_dance),
                 "u": ("Square", self.square),
                 "s": ("Shy", self.shy),
+                "w": ("woosh", self.woosh),
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
                 "m" :("moveToWall", self.moveToWall),
-                #"e" :("evalSide", self.evalSide),
+                #"e" :("evalSide", self.eva1lSide),
                 "b" :("betterES", self.betterES),
                 "p" :("pain", self.pain)
                 }
@@ -203,7 +205,9 @@ class Piggy(PiggyParent):
           """
         #Empty evalDict
     #IN THE PROCESS OF BES
+          
     def betterES(self):
+      basedArray.clear()
       self.fwd()
       if (self.read_distance() > 100):
         self.stop()
@@ -223,6 +227,21 @@ class Piggy(PiggyParent):
           time.sleep(2)
           self.stop()
           self.betterES()
+
+    def woosh(self):
+      self.fwd()
+      while (self.fwd() == True):
+        self.servo(1600)
+        if (int(self.read_distance()) > 200):
+          pass
+        self.servo(1500)
+        if (int(self.read_distance()) > 200):
+          pass
+        self.servo(1700)
+        if (int(self.read_distance()) > 200):
+          pass
+        
+        
           
     '''
     def betterES(self):`
