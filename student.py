@@ -231,18 +231,22 @@ class Piggy(PiggyParent):
 
     def woosh(self):
       self.fwd()
-      while (self.fwd() == True):
-        self.servo(1600)
-        if (int(self.read_distance()) > 200):
-          pass
-        self.servo(1500)
-        if (int(self.read_distance()) > 200):
-          pass
-        self.servo(1700)
-        if (int(self.read_distance()) > 200):
-          pass
-        
-        
+      time.sleep(0.5)
+      self.servo(1600)
+      if (int(self.read_distance()) > 200):
+        pass
+      self.fwd()
+      time.sleep(0.5)
+      self.servo(1500)
+      if (int(self.read_distance()) > 200):
+        pass
+      self.fwd()
+      time.sleep(0.5)
+      self.servo(1700)
+      if (int(self.read_distance()) > 200):
+        pass
+      self.woosh()
+    
     '''
     def betterES(self):`
       while True:
