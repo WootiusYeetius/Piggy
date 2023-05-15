@@ -230,6 +230,8 @@ class Piggy(PiggyParent):
           self.betterES()
 
     def woosh(self):
+      self.LEFT_DEFAULT = 50
+      self.RIGHT_DEFAULT = 50
       self.fwd()
       time.sleep(0.5)
       self.servo(1600)
@@ -240,12 +242,12 @@ class Piggy(PiggyParent):
         wooshArray.append(int(self.read_distance()))
         if (wooshArray[0] > wooshArray[1]):
           self.LEFT_DEFAULT = 75
-          print("Going right")
+          print("E Going right")
           time.sleep(2)
           self.LEFT_DEFAULT = 50
         elif(wooshArray[1] > wooshArray[0]):
           self.RIGHT_DEFAULT = 75
-          print("Going left")
+          print("E Going left")
           time.sleep(2)
           self.RIGHT_DEFAULT = 50
       self.fwd()
