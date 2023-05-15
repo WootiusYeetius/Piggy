@@ -40,8 +40,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 50
-        self.RIGHT_DEFAULT = 55
+        self.LEFT_DEFAULT = 55
+        self.RIGHT_DEFAULT = 50
         self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
@@ -230,8 +230,8 @@ class Piggy(PiggyParent):
           self.betterES()
 
     def woosh(self):
-      self.LEFT_DEFAULT = 50
-      self.RIGHT_DEFAULT = 55
+      self.LEFT_DEFAULT = 55
+      self.RIGHT_DEFAULT = 50
       self.fwd()
       time.sleep(0.5)
       self.servo(1600)
@@ -244,18 +244,18 @@ class Piggy(PiggyParent):
           self.LEFT_DEFAULT = 75
           print("E Going right")
           time.sleep(2)
-          self.LEFT_DEFAULT = 50
+          self.LEFT_DEFAULT = 55
         elif(wooshArray[1] > wooshArray[0]):
           self.RIGHT_DEFAULT = 75
           print("E Going left")
           time.sleep(2)
-          self.RIGHT_DEFAULT = 55
+          self.RIGHT_DEFAULT = 50
       self.fwd()
       time.sleep(0.5)
       self.servo(1500)
       if (int(self.read_distance()) < 100):
         self.servo(1600)
-        self.RIGHT_DEFAULT = 60
+        self.RIGHT_DEFAULT = 75
         print("Going left")
         time.sleep(2)
         self.RIGHT_DEFAULT = 50
@@ -264,10 +264,10 @@ class Piggy(PiggyParent):
       self.servo(1700)
       if (int(self.read_distance()) < 100):
         self.servo(1600)
-        self.LEFT_DEFAULT = 60
+        self.LEFT_DEFAULT = 75
         print("Going right")
         time.sleep(2)
-        self.LEFT_DEFAULT = 50
+        self.LEFT_DEFAULT = 55
       self.woosh()
     
     '''
