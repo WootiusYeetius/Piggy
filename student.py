@@ -7,7 +7,7 @@ Dance: Done
 Move to wall: Done
 Safe to dance: Done
 Just go around: Done
-Check which side is shorter: Need to do
+Check which side is shorter: Done I think
 
 '''
 from teacher import PiggyParent
@@ -233,18 +233,35 @@ class Piggy(PiggyParent):
       self.fwd()
       time.sleep(0.5)
       self.servo(1600)
-      if (int(self.read_distance()) > 200):
-        pass
+      if (int(self.read_distance()) < 100):
+        self.servo(1500)
+        wooshArray.append(int(self.read_distance()))
+        self.servo(1700)
+        wooshArray.append(int(self.read_distance()))
+        if (wooshArray[0] > wooshArray[1]):
+          self.LEFT_DEFAULT = 60
+          time.sleep(2)
+          self.LEFT_DEFAULT = 50
+        elif(wooshArray[1] > wooshArray[1]):
+          self.RIGHT_DEFAULT = 60
+          time.sleep(2)
+          self.RIGHT_DEFAULT = 50
       self.fwd()
       time.sleep(0.5)
       self.servo(1500)
-      if (int(self.read_distance()) > 200):
-        pass
+      if (int(self.read_distance()) < 100):
+        self.servo(1600)
+        self.RIGHT_DEFAULT = 60
+        time.sleep(2)
+        self.RIGHT_DEFAULT = 50
       self.fwd()
       time.sleep(0.5)
       self.servo(1700)
-      if (int(self.read_distance()) > 200):
-        pass
+      if (int(self.read_distance()) < 100):
+        self.servo(1600)
+        self.LEFT_DEFAULT = 60
+        time.sleep(2)
+        self.LEFT_DEFAULT = 50
       self.woosh()
     
     '''
