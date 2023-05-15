@@ -41,7 +41,7 @@ class Piggy(PiggyParent):
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
         self.LEFT_DEFAULT = 50
-        self.RIGHT_DEFAULT = 50
+        self.RIGHT_DEFAULT = 55
         self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
@@ -87,7 +87,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def ian(self):
+    def ian(self):  
       print("Here is a first line")
       print("Bosnia is so based")
       self.fwd()
@@ -231,7 +231,7 @@ class Piggy(PiggyParent):
 
     def woosh(self):
       self.LEFT_DEFAULT = 50
-      self.RIGHT_DEFAULT = 50
+      self.RIGHT_DEFAULT = 55
       self.fwd()
       time.sleep(0.5)
       self.servo(1600)
@@ -249,7 +249,7 @@ class Piggy(PiggyParent):
           self.RIGHT_DEFAULT = 75
           print("E Going left")
           time.sleep(2)
-          self.RIGHT_DEFAULT = 50
+          self.RIGHT_DEFAULT = 55
       self.fwd()
       time.sleep(0.5)
       self.servo(1500)
