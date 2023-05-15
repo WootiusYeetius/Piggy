@@ -24,8 +24,9 @@ goAngle = 0
 rt = {}
 lt = {}
 basedArray = []
-class Piggy(PiggyParent):
 wooshArray = []
+class Piggy(PiggyParent):
+
 
     '''
     *************
@@ -242,7 +243,6 @@ wooshArray = []
           pass
         
         
-          
     '''
     def betterES(self):`
       while True:
