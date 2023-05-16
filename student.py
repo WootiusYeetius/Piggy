@@ -244,14 +244,14 @@ class Piggy(PiggyParent):
         time.sleep(0.5)
         wooshArray.append(int(self.read_distance()))
         if (wooshArray[0] > wooshArray[1]):
-          self.LEFT_DEFAULT = 75
+          self.LEFT_DEFAULT = 90
           self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
           print("E Going right")
           time.sleep(2)
           self.LEFT_DEFAULT = 55
           self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
         elif(wooshArray[1] > wooshArray[0]):
-          self.RIGHT_DEFAULT = 75
+          self.RIGHT_DEFAULT = 90
           self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
           print("E Going left")
           time.sleep(2)
@@ -263,7 +263,7 @@ class Piggy(PiggyParent):
       if (int(self.read_distance()) < 100):
         self.servo(1600)
         time.sleep(0.5)
-        self.RIGHT_DEFAULT = 75
+        self.RIGHT_DEFAULT = 90
         self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
         print("Going left")
         time.sleep(2)
@@ -275,7 +275,7 @@ class Piggy(PiggyParent):
       if (int(self.read_distance()) < 100):
         self.servo(1600)
         time.sleep(0.5)
-        self.LEFT_DEFAULT = 75
+        self.LEFT_DEFAULT = 90
         self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
         print("Going right")
         time.sleep(2)
