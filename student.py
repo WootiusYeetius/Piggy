@@ -45,7 +45,6 @@ class Piggy(PiggyParent):
         self.MIDPOINT = 1600  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
-        
     def load_defaults(self):
         """Implements the magic numbers defined in constructor"""
         self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
@@ -232,42 +231,52 @@ class Piggy(PiggyParent):
     def woosh(self):
       self.LEFT_DEFAULT = 55
       self.RIGHT_DEFAULT = 50
+      self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
+      self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
       self.fwd()
       time.sleep(0.5)
       self.servo(1600)
-      if (int(self.read_distance()) < 100):
+      if (int(self.read_distance()) < 50):
         self.servo(1500)
         wooshArray.append(int(self.read_distance()))
         self.servo(1700)
         wooshArray.append(int(self.read_distance()))
         if (wooshArray[0] > wooshArray[1]):
           self.LEFT_DEFAULT = 75
+          self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
           print("E Going right")
           time.sleep(2)
           self.LEFT_DEFAULT = 55
+          self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
         elif(wooshArray[1] > wooshArray[0]):
           self.RIGHT_DEFAULT = 75
+          self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
           print("E Going left")
           time.sleep(2)
           self.RIGHT_DEFAULT = 50
+          self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
       self.fwd()
       time.sleep(0.5)
       self.servo(1500)
-      if (int(self.read_distance()) < 100):
+      if (int(self.read_distance()) < 50):
         self.servo(1600)
         self.RIGHT_DEFAULT = 75
+        self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
         print("Going left")
         time.sleep(2)
         self.RIGHT_DEFAULT = 50
+        self.set_motor_limits(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
       self.fwd()
       time.sleep(0.5)
       self.servo(1700)
-      if (int(self.read_distance()) < 100):
+      if (int(self.read_distance()) < 50):
         self.servo(1600)
         self.LEFT_DEFAULT = 75
+        self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
         print("Going right")
         time.sleep(2)
         self.LEFT_DEFAULT = 55
+        self.set_motor_limits(self.MOTOR_LEFT, self.LEFT_DEFAULT)
       self.woosh()
     
     '''
