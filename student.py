@@ -227,7 +227,47 @@ class Piggy(PiggyParent):
           time.sleep(2)
           self.stop()
           self.betterES()
-
+          
+    def woosh(self):
+      wooshArray.clear()
+      self.fwd()
+      self.servo(1500)
+      time.sleep(0.5)
+      if (int(self.read_distance()) > 100):
+        self.fwd(left = 70, right = 30)
+        time.sleep(0.5)
+        self.fwd(left = 30, right = 70)
+        time.sleep(0.5)
+      self.fwd()
+      self.servo(1700)
+      time.sleep(0.5)
+      if (int(self.read_distance()) > 100):
+        self.fwd(left = 30, right = 70)
+        time.sleep(0.5)
+        self.fwd(left = 70, right = 30)
+        time.sleep(0.5)
+      self.fwd()
+      self.servo(1600)
+      time.sleep(0.5)
+      if (int(self.read_distance()) > 100):
+        self.servo(1000)
+        time.sleep(0.5)
+        wooshArray.append(int(self.read_distance()))
+        self.servo(2000)
+        time.sleep(0.5)
+        wooshArray.append(int(self.read_distance()))
+        if (wooshArray[0] > wooshArray[1]):
+          self.fwd(left = 70, right = 30)
+          time.sleep(0.5)
+          self.fwd(left = 30, right = 70)
+          time.sleep(0.5)
+        elif(wooshArray[1] > wooshArray[0]):
+          self.fwd(left = 30, right = 70)
+          time.sleep(0.5)
+          self.fwd(left = 70, right = 30)
+          time.sleep(0.5)
+        self.woosh()
+    '''
     def woosh(self):
       self.LEFT_DEFAULT = 55
       self.RIGHT_DEFAULT = 50
@@ -301,7 +341,7 @@ class Piggy(PiggyParent):
       wooshArray.clear()
       print(wooshArray)
       self.woosh()
-    
+    '''
     '''
     def betterES(self):`
       while True:
