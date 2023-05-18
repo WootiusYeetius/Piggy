@@ -266,9 +266,7 @@ class Piggy(PiggyParent):
           time.sleep(2)
           self.fwd(left = 70, right = 30)
           time.sleep(2)
-        else:
-          pass
-        self.woosh()
+      self.woosh()
     '''
     def woosh(self):
       self.LEFT_DEFAULT = 55
