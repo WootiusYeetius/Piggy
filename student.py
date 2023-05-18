@@ -231,7 +231,7 @@ class Piggy(PiggyParent):
     def woosh(self):
       wooshArray.clear()
       self.fwd()
-      self.servo(1500)
+      self.servo(1400)
       time.sleep(0.5)
       if (int(self.read_distance()) < 100):
         self.fwd(left = 70, right = 30)
@@ -239,7 +239,7 @@ class Piggy(PiggyParent):
         self.fwd(left = 30, right = 70)
         time.sleep(2)
       self.fwd()
-      self.servo(1700)
+      self.servo(1800)
       time.sleep(0.5)
       if (int(self.read_distance()) < 100):
         self.fwd(left = 30, right = 70)
