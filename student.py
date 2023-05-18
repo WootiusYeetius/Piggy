@@ -233,7 +233,7 @@ class Piggy(PiggyParent):
       self.fwd()
       self.servo(1500)
       time.sleep(0.5)
-      if (int(self.read_distance()) > 100):
+      if (int(self.read_distance()) < 100):
         self.fwd(left = 70, right = 30)
         time.sleep(2)
         self.fwd(left = 30, right = 70)
@@ -241,7 +241,7 @@ class Piggy(PiggyParent):
       self.fwd()
       self.servo(1700)
       time.sleep(0.5)
-      if (int(self.read_distance()) > 100):
+      if (int(self.read_distance()) < 100):
         self.fwd(left = 30, right = 70)
         time.sleep(2)
         self.fwd(left = 70, right = 30)
@@ -249,7 +249,7 @@ class Piggy(PiggyParent):
       self.fwd()
       self.servo(1600)
       time.sleep(0.5)
-      if (int(self.read_distance()) > 100):
+      if (int(self.read_distance()) < 100):
         self.servo(1000)
         time.sleep(0.5)
         wooshArray.append(int(self.read_distance()))
