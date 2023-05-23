@@ -67,7 +67,7 @@ class Piggy(PiggyParent):
                 "w": ("woosh", self.woosh),
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
-                "m": ("Maze", self.maze)
+                "m": ("Maze", self.maze),
                 "q": ("Quit", self.quit),
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
