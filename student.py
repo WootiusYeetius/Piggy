@@ -215,6 +215,7 @@ class Piggy(PiggyParent):
       time.sleep(1)
       if (int(self.read_distance()) < 100):
         self.stop()
+        time.sleep(0.5)
         self.servo(1000)
         time.sleep(0.5)
         basedArray.append(int(self.read_distance()))
