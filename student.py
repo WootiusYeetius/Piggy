@@ -227,13 +227,16 @@ class Piggy(PiggyParent):
           self.fwd()
           time.sleep(2)
           self.stop()
+          self.turn_by_deg(-90)
           self.betterES()
         elif (basedArray[1] > basedArray[0]):
           self.turn_by_deg(-90)
           self.fwd()
           time.sleep(2)
           self.stop()
+          self.turn_by_deg(90)
           self.betterES()
+      else: 
         self.betterES()
           
     def woosh(self):
