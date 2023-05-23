@@ -212,11 +212,14 @@ class Piggy(PiggyParent):
     def betterES(self):
       basedArray.clear()
       self.fwd()
+      time.sleep(1)
       if (int(self.read_distance()) < 100):
         self.stop()
         self.servo(1000)
+        time.sleep(0.5)
         basedArray.append(int(self.read_distance()))
         self.servo(2000)
+        time.sleep(0.5)
         basedArray.append(int(self.read_distance()))
         if (basedArray[0] > basedArray[1]):
           self.turn_by_deg(90)
