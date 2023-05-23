@@ -212,7 +212,7 @@ class Piggy(PiggyParent):
     def betterES(self):
       basedArray.clear()
       self.fwd()
-      if (self.read_distance() < 100):
+      if (int(self.read_distance()) < 100):
         self.stop()
         self.servo(1000)
         basedArray.append(int(self.read_distance()))
