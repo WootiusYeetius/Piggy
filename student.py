@@ -284,7 +284,8 @@ class Piggy(PiggyParent):
     def maze(self):
       self.fwd()
       time.sleep(0.5)
-      if (int(self.read_distance()) > 100):
+      if (int(self.read_distance()) < 100):
+        self.stop()
         self.turn_by_deg(90)
         time.sleep(1)
         if (int(self.read_distance()) > 100):
@@ -292,6 +293,7 @@ class Piggy(PiggyParent):
           time.sleep(0.25)
           self.maze()
         else:
+          self.stop()
           self.turn_by_deg(90)
           time.sleep(1)
           if (int(self.read_distance()) > 100):
@@ -299,14 +301,15 @@ class Piggy(PiggyParent):
             time.sleep(0.25)
             self.maze()
           else:
+            self.stop()
             self.turn_by_deg(90)
             time.sleep(1)
             if (int(self.read_distance()) > 100):
               self.fwd()
               time.sleep(0.25)
               self.maze()
-            else:
-              self.maze()
+      else:
+        self.maze()
               
     '''
     def woosh(self):
