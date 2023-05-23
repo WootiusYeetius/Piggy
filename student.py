@@ -222,6 +222,7 @@ class Piggy(PiggyParent):
         self.servo(2000)
         time.sleep(0.5)
         basedArray.append(int(self.read_distance()))
+        self.servo(self.MIDPOINT)
         if (basedArray[0] > basedArray[1]):
           self.turn_by_deg(90)
           self.fwd()
