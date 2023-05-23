@@ -25,6 +25,8 @@ rt = {}
 lt = {}
 basedArray = []
 wooshArray = []
+mazeArray = []
+
 class Piggy(PiggyParent):
 
 
@@ -64,7 +66,8 @@ class Piggy(PiggyParent):
                 "s": ("Shy", self.shy),
                 "w": ("woosh", self.woosh),
                 "f": ("Follow", self.follow),
-                "c": ("Calibrate", self.calibrate),
+                "c": ("Calibrate", self.calibrate),\
+                "m": ("Maze", self.maze)
                 "q": ("Quit", self.quit),
                 "i" :("Ian", self.ian),
                 "z" :("Scan", self.scan),
@@ -209,7 +212,7 @@ class Piggy(PiggyParent):
     def betterES(self):
       basedArray.clear()
       self.fwd()
-      if (self.read_distance() > 100):
+      if (self.read_distance() < 100):
         self.stop()
         self.servo(1000)
         basedArray.append(int(self.read_distance()))
@@ -267,6 +270,13 @@ class Piggy(PiggyParent):
           self.fwd(left = 70, right = 30)
           time.sleep(2)
       self.woosh()
+
+    def maze(self):
+      self.fwd()
+      if (int(self.read_distance()) > 100)
+        self.turn_by_deg(90)
+        time.sleep(1)
+        if (int(self.read_distance()))
     '''
     def woosh(self):
       self.LEFT_DEFAULT = 55
