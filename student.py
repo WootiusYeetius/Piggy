@@ -212,7 +212,7 @@ class Piggy(PiggyParent):
     def betterES(self):
       basedArray.clear()
       self.fwd()
-      time.sleep(1)
+      time.sleep(0.25)
       if (int(self.read_distance()) < 100):
         self.stop()
         time.sleep(0.5)
