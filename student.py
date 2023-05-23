@@ -230,6 +230,7 @@ class Piggy(PiggyParent):
           time.sleep(2)
           self.stop()
           self.betterES()
+        self.betterES()
           
     def woosh(self):
       wooshArray.clear()
