@@ -247,17 +247,17 @@ class Piggy(PiggyParent):
       time.sleep(0.5)
       if (int(self.read_distance()) < 150):
         self.fwd(left = 30, right = 70)
-        time.sleep(4)
+        time.sleep(2)
         self.fwd(left = 70, right = 30)
-        time.sleep(4)
+        time.sleep(2)
       self.fwd()
       self.servo(1800)
       time.sleep(0.5)
       if (int(self.read_distance()) < 150):
         self.fwd(left = 70, right = 30)
-        time.sleep(4)
+        time.sleep(2)
         self.fwd(left = 30, right = 70)
-        time.sleep(4)
+        time.sleep(2)
       self.fwd()
       self.servo(1600)
       time.sleep(0.5)
@@ -270,14 +270,14 @@ class Piggy(PiggyParent):
         wooshArray.append(int(self.read_distance()))
         if (wooshArray[0] > wooshArray[1]):
           self.fwd(left = 70, right = 30)
-          time.sleep(4)
+          time.sleep(2)
           self.fwd(left = 30, right = 70)
-          time.sleep(4)
+          time.sleep(2)
         elif(wooshArray[1] > wooshArray[0]):
           self.fwd(left = 30, right = 70)
-          time.sleep(4)
+          time.sleep(2)
           self.fwd(left = 70, right = 30)
-          time.sleep(4)
+          time.sleep(2)
       self.woosh()
 
     def maze(self):
