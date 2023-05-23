@@ -282,11 +282,31 @@ class Piggy(PiggyParent):
 
     def maze(self):
       self.fwd()
+      time.sleep(0.5)
       if (int(self.read_distance()) > 100):
         self.turn_by_deg(90)
         time.sleep(1)
-        if (int(self.read_distance())):
-          pass
+        if (int(self.read_distance()) > 100):
+          self.fwd()
+          time.sleep(0.25)
+          self.maze()
+        else:
+          self.turn_by_deg(90)
+          time.sleep(1)
+          if (int(self.read_distance()) > 100):
+            self.fwd()
+            time.sleep(0.25)
+            self.maze()
+          else:
+            self.turn_by_deg(90)
+            time.sleep(1)
+            if (int(self.read_distance()) > 100):
+              self.fwd()
+              time.sleep(0.25)
+              self.maze()
+            else:
+              self.maze()
+              
     '''
     def woosh(self):
       self.LEFT_DEFAULT = 55
