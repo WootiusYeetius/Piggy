@@ -74,7 +74,8 @@ class Piggy(PiggyParent):
                 "m" :("moveToWall", self.moveToWall),
                 #"e" :("evalSide", self.eva1lSide),
                 "b" :("betterES", self.betterES),
-                "p" :("pain", self.pain)
+                "p" :("pain", self.pain),
+                "r" :("maze", self.maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
