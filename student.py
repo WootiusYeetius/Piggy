@@ -299,6 +299,7 @@ class Piggy(PiggyParent):
           self.maze()
       else:
         self.maze()
+        mazeArray.clear()
               
     '''
     def woosh(self):
