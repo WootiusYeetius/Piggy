@@ -288,26 +288,14 @@ class Piggy(PiggyParent):
         self.stop()
         self.turn_by_deg(90)
         time.sleep(1)
-        if (int(self.read_distance()) > 100):
-          self.fwd()
-          time.sleep(0.25)
+        mazeArray.append(int(self.read_distance()))
+        self.turn_by_deg(180)
+        mazeArray.append(int(self.read_distance()))
+        if (mazeArray[1] > mazeArray[0]):
           self.maze()
-        else:
-          self.stop()
+        elif (mazeArray[0] > mazeArray[1]):
           self.turn_by_deg(180)
-          time.sleep(1)
-          if (int(self.read_distance()) > 100):
-            self.fwd()
-            time.sleep(0.25)
-            self.maze()
-          else:
-            self.stop()
-            self.turn_by_deg(90)
-            time.sleep(1)
-            if (int(self.read_distance()) > 100):
-              self.fwd()
-              time.sleep(0.25)
-              self.maze()
+          self.maze()
       else:
         self.maze()
               
