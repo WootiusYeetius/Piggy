@@ -298,9 +298,8 @@ class Piggy(PiggyParent):
           time.sleep(0.5)
           self.maze()
       else:
-        self.maze()
         mazeArray.clear()
-              
+        self.maze()     
     '''
     def woosh(self):
       self.LEFT_DEFAULT = 55
