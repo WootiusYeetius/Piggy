@@ -286,7 +286,7 @@ class Piggy(PiggyParent):
       time.sleep(0.5)
       if (int(self.read_distance()) < 150):
         self.stop()
-        self.turn_by_deg(85)
+        self.turn_by_deg(90)
         time.sleep(1)
         mazeArray.append(int(self.read_distance()))
         self.turn_by_deg(175)
