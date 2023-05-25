@@ -291,9 +291,9 @@ class Piggy(PiggyParent):
         mazeArray.append(int(self.read_distance()))
         self.turn_by_deg(180)
         mazeArray.append(int(self.read_distance()))
-        if (mazeArray[1] > mazeArray[0]):
+        if (int(mazeArray[1]) > int(mazeArray[0])):
           self.maze()
-        elif (mazeArray[0] > mazeArray[1]):
+        elif (int(mazeArray[0]) > int(mazeArray[1])):
           self.turn_by_deg(180)
           self.maze()
       else:
